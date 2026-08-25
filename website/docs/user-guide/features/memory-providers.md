@@ -160,7 +160,7 @@ The mapping:
 | **AI peer** (`aiPeer`) | One per Hermes profile. Host key `hermes` → default; `hermes.<profile>` for others. |
 | **Observation** | Per-peer toggles controlling what Honcho models from whose messages. `directional` (default, all four on) or `unified` (single-observer pool). |
 
-### New profile, fresh Honcho peer
+#### New profile, fresh Honcho peer
 
 ```bash
 hermes profile create coder --clone
@@ -176,7 +176,7 @@ hermes honcho sync
 
 Scans every Hermes profile, creates host blocks for any profile without one, inherits settings from the default `hermes` block, and creates the new AI peers eagerly. Idempotent — skips profiles that already have a host block.
 
-### Per-profile observation
+#### Per-profile observation
 
 Each host block can override the observation config independently. Example: a code-focused profile where the AI peer observes the user but doesn't self-model:
 
@@ -206,7 +206,7 @@ Server-side toggles set via the [Honcho dashboard](https://app.honcho.dev) win o
 
 See the [Honcho page](./honcho.md#observation-directional-vs-unified) for the full observation reference.
 
-### Gateway identity mapping
+#### Gateway identity mapping
 
 The peer model above covers CLI, TUI, and desktop sessions, where every conversation resolves to `peerName`. The [gateway](../../developer-guide/gateway-internals.md) adds a second axis: users arrive with platform-native runtime IDs (Telegram UID, Discord snowflake, Slack user), and three keys decide which peer each ID resolves to.
 
